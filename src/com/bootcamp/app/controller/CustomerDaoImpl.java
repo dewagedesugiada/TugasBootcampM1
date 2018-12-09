@@ -22,9 +22,6 @@ String message = "" ;
 	Customer cs = new Customer();
 	DBBanking ConnDB = new DBBanking() ;
 	Connection connection = ConnDB.get_connection() ;
-//	static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-//	static BufferedReader input = new BufferedReader(inputStreamReader) ;	
-	
 	@Override
 	public String insert(Customer cs) throws Exception {
 		
@@ -81,7 +78,7 @@ String message = "" ;
 			String sql = "DELETE FROM customer where CustomerNumber= ?";
 			ps = connection.prepareStatement(sql);
 			ps.setInt(1, cs.getId());
-//			System.out.println(ps);
+			System.out.println(ps);
 			ps.executeUpdate();
 			
 			message = "Succes..";
@@ -119,7 +116,7 @@ String message = "" ;
 	
 	public List<Customer> LastData() throws Exception {
 		Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select * from customer");
+        ResultSet resultSet = statement.executeQuery("select * from customer ");
         
         List<Customer> list = new ArrayList<>();
         

@@ -118,6 +118,8 @@ public static void showMenuCustomer() throws Exception {
 	public static void update() throws Exception {
 		an = new Scanner(System.in);
 		in = new Scanner(System.in);
+		System.out.print("choose the customer number you want to change :");
+		int id = in.nextInt();
 		System.out.print("First Name :");
 		String firstname = an.nextLine();
 		System.out.print("Last Name :");
@@ -132,8 +134,7 @@ public static void showMenuCustomer() throws Exception {
 		String phonetype = an.nextLine();
 		System.out.print("Phone Number :");
 		String phonenumber = an.nextLine();
-		System.out.print("Account Number :");
-		int id = in.nextInt();
+	
 		
 		Customer cs = new Customer(firstname, lastname, datebirth, username, password, phonetype,phonenumber,id);
 		
@@ -142,5 +143,7 @@ public static void showMenuCustomer() throws Exception {
 		System.out.println(notif);
 		ShowData();
 	}
+	
+	
 
 }
