@@ -15,14 +15,19 @@ private static Scanner in;
 public static void showMenuCustomer() throws Exception {
 		
 		Scanner sn = new Scanner(System.in);
-		System.out.println("\n### Menu Customer ###");
-        System.out.println("1. Input data");
-        System.out.println("2. View data");
-        System.out.println("3. Update data");
-        System.out.println("4. Delete data");
-        System.out.println("5. Find data");
-        System.out.println("0. Back");
-        System.out.print("Choose \t: ");
+		System.out.println("----------------------------------------");
+		System.out.println("|           MENU CUSTOMER              |");
+		System.out.println("========================================");
+		System.out.println("|Option :                              |");
+		System.out.println("|  1. Input Data Customer              |");
+		System.out.println("|  2. View Data Customer               |");
+		System.out.println("|  3. Update Data Customer             |");
+		System.out.println("|  4. Delete Data Customer             |");
+		System.out.println("|  5. Find Data Customer By ID         |");
+		System.out.println("|  0. Back                             |");
+		System.out.println("++++++++++++++++++++++++++++++++++++++++");
+		System.out.println("");
+		System.out.print("Choose \t: ");
         String no = sn.next();
         
         if(no.equals("1")){
@@ -33,10 +38,14 @@ public static void showMenuCustomer() throws Exception {
         	update();
         }else if(no.equals("4")){
           deleteData();
-        }else if(no.equals("0")){
-          
+        }else if(no.equals("5")){
+//            deleteData();
+          }else if(no.equals("0")){
+          UI ui = new UI();
+          ui.showMenu();
         }else{
-            System.out.println("Not found");
+        	System.out.println("The choice you entered is not registered (Please try again)..");
+        	showMenuCustomer();
           
         }
 	}
@@ -45,6 +54,7 @@ public static void showMenuCustomer() throws Exception {
 		
 		Scanner an = new Scanner(System.in) ;
 		Scanner in = new Scanner(System.in) ;
+		System.out.println("=========== INPUT DATA ===========");
 		System.out.print("Account Number :");
 		int accountnumber = in.nextInt();
 		System.out.print("First Name :");
@@ -76,6 +86,7 @@ public static void showMenuCustomer() throws Exception {
 		CustomerDao csdao = new CustomerDaoImpl();
 		List<Customer> list = csdao.getList();
 		if(list!=null && !list.isEmpty()) {
+			System.out.println("=========== DATA CUSTOMER ===========");
 			for (Customer customer : list) {
 				System.out.println("customer\t\t : "+customer.getCustomerNumber());
 				System.out.println("firstName\t\t : "+customer.getFirstName());
@@ -88,9 +99,9 @@ public static void showMenuCustomer() throws Exception {
 				System.out.println("==================================");
 				
 				}
-			System.out.print("Back to main menu (yes) :");
+			System.out.print("Back to main menu (y/Y) :");
 			String choose =  sc.nextLine();
-			if (choose.equals("yes")) {
+			if (choose.equals("yes") || choose.equals("Y")) {
 				showMenuCustomer();
 			}else {
 				System.exit(0);
@@ -103,6 +114,7 @@ public static void showMenuCustomer() throws Exception {
 	
 	public static void deleteData() throws Exception {
 		Scanner an = new Scanner(System.in) ;
+		System.out.println("=========== DELETE DATA ===========");
 		System.out.print("Masukan id yang ingin di hapus :");
 		int id = an.nextInt();	
 		Customer cs = new Customer();
@@ -118,6 +130,7 @@ public static void showMenuCustomer() throws Exception {
 	public static void update() throws Exception {
 		an = new Scanner(System.in);
 		in = new Scanner(System.in);
+		System.out.println("=========== UPDATE DATA ===========");
 		System.out.print("choose the customer number you want to change :");
 		int id = in.nextInt();
 		System.out.print("First Name :");
