@@ -20,7 +20,11 @@ public class UI {
         if(no.equals("1")){
         	UICustomer uic = new UICustomer();
         	uic.showMenuCustomer();
-        }else if(no.equals("0")){
+        }else if (no.equals("2")) {
+        	UIAccount uia = new UIAccount();
+        	uia.menuAccount();
+        	
+		}else if(no.equals("0")){
             System.exit(0);
         }else{
             System.out.println("Not found");

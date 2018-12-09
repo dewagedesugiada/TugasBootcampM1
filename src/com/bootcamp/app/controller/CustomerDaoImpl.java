@@ -3,7 +3,7 @@ package com.bootcamp.app.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.print.DocFlavor.STRING;
+//import javax.print.DocFlavor.STRING;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -62,7 +62,7 @@ String message = "" ;
         		customer.setUsername(resultSet.getString("Username"));
         		customer.setPassword(resultSet.getString("Password"));
         		customer.setPhonetype(resultSet.getString("Phone_type"));
-        		customer.setPhoneNumber(resultSet.getString("Phone_type"));
+        		customer.setPhoneNumber(resultSet.getString("Phone_number"));
         		
         		list.add(customer);
         }
